@@ -39,7 +39,7 @@ class Users(Base):
     name = Column(String, unique=True, nullable=False)
     password = Column(String)
     email = Column(String, nullable=False, unique=True)
-    recipe = relationship("plans")
+    plans = relationship("plans")
 
 
 class Plan(Base):
