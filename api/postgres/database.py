@@ -9,10 +9,11 @@ load_dotenv(BASEDIR + '/.env')
 username = os.getenv('POSTGRES_USERNAME')
 password = os.getenv('POSTGRES_PASSWORD')
 
-SQLALCHEMY_DATABASE_URL = f"postgresql://{username}:{password}@postgres:5432/postgres"
+SQLALCHEMY_DATABASE_URL = f'postgresql://{username}:{password}'\
+                            '@postgres:5432/postgres'
 
 engine = create_engine(
-    SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
+    SQLALCHEMY_DATABASE_URL, connect_args={}
 )
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 

@@ -10,7 +10,7 @@ def getPlanByUser(session: Session, id: int):
     Paramters:
         session (Session): db session
         id (int): id of user
-    
+
     Returns:
         list: list of plans (Plan object)
 

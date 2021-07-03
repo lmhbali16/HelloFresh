@@ -112,3 +112,17 @@ def deleteRecipe(session: Session, id: int):
     recipe = getRecipe(session, id)
     session.delete(recipe)
     session.commit()
+
+
+def getRecipes(session: Session):
+    '''
+    Get all the recipes
+
+    Parameters:
+        session (Session): db session
+
+    Returns:
+        list: list of recipes Recipe ORM
+
+    '''
+    return session.query(Recipe).all()

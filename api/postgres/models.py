@@ -1,7 +1,7 @@
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql.schema import Table
-from sqlalchemy.sql.sqltypes import ARRAY, DATE, FLOAT, JSON
+from sqlalchemy.sql.sqltypes import ARRAY, BOOLEAN, DATE, FLOAT, JSON
 from .database import Base
 
 
@@ -40,6 +40,7 @@ class Users(Base):
     password = Column(String)
     email = Column(String, nullable=False, unique=True)
     plans = relationship("plans")
+    login = Column(BOOLEAN, server_default='false')
 
 
 class Plan(Base):

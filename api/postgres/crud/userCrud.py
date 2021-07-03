@@ -3,6 +3,7 @@ from schema.user import UserCreate
 from postgres.models import Users
 from schema.plan import PlanCreate
 from postgres.models import Plan
+from sqlalchemy.sql.expression import update
 
 
 def getUser(session: Session, id: int):
@@ -78,3 +79,21 @@ def addPlan(session: Session, id: int, plan: PlanCreate):
     user.plans.append(planDB)
     session.add(user)
     session.commit()
+
+
+def updateUser(session: Session, id: int, properties: dict):
+    '''
+    Update user parameters
+
+    Parameters:
+        session (Session): db session
+        id (int): user ID
+        properties (dict): key-value properties
+
+    Returns:
+        None: no return value
+
+    '''
+
+    smt = update(Users).where(Users.id == id).values(**properties)
+    session.execute(smt)
