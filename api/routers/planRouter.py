@@ -1,4 +1,6 @@
-from postgres.crud.planCrud import createPlan, deletePlan, getPlan, getPlanByUser, updatePlan
+from postgres.crud.planCrud import (
+                                    createPlan, deletePlan, getPlan,
+                                    getPlanByUser, updatePlan)
 from postgres.crud.userCrud import getUserByEmail
 from fastapi import APIRouter
 from fastapi import Depends

@@ -6,8 +6,8 @@ import jwt
 from jwt import DecodeError, ExpiredSignatureError
 import os
 from postgres.database import SessionLocal
+from starlette.status import HTTP_401_UNAUTHORIZED
 
-from starlette.status import HTTP_200_OK, HTTP_401_UNAUTHORIZED
 
 BASEDIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 load_dotenv(BASEDIR + '/.env')
