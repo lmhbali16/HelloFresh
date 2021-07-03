@@ -1,4 +1,4 @@
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
+from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql.schema import Table
 from sqlalchemy.sql.sqltypes import ARRAY, DATE, FLOAT, JSON
@@ -6,10 +6,10 @@ from .database import Base
 
 
 association_table = Table(
-                            'association',
-                            Base.metadata,
-                            Column('plan_id', Integer, ForeignKey('plans.id')),
-                            Column('recipe_id', Integer, ForeignKey('recipe.id')))
+                        'association',
+                        Base.metadata,
+                        Column('plan_id', Integer, ForeignKey('plans.id')),
+                        Column('recipe_id', Integer, ForeignKey('recipe.id')))
 
 
 class Recipe(Base):
@@ -26,11 +26,11 @@ class Recipe(Base):
 
 
 class Review(Base):
-     __tablename__ = 'review'
-     id = Column(Integer, autoincrement=True, primary_key=True)
-     user = Column(Integer, ForeignKey('users.id'), nullable=False)
-     comment = Column(String)
-     rating = Column(FLOAT)
+    __tablename__ = 'review'
+    id = Column(Integer, autoincrement=True, primary_key=True)
+    user = Column(Integer, ForeignKey('users.id'), nullable=False)
+    comment = Column(String)
+    rating = Column(FLOAT)
 
 
 class Users(Base):
