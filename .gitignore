@@ -2,3 +2,10 @@
 
 .vscode
 api/.vscode
+
+# python cache
+api/__pycache__/*
+api/postgres/__pycache__/*
+api/postgres/crud/__pycache__/*
+api/routers/__pycache__/*
+api/schema/__pycache__/*
