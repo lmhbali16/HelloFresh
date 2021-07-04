@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 from pydantic import BaseModel
 from datetime import date
 
@@ -8,7 +8,7 @@ class PlanBase(BaseModel):
     start: date
     end: date
     serve: int = 1
-    recipes: List = []
+    recipes: Optional[List]
 
 
 class PlanCreate(PlanBase):

@@ -1,15 +1,15 @@
-from typing import List
+from typing import List, Optional
 from pydantic import BaseModel
 
 
 class RecipeBase(BaseModel):
-    ingredients: List[dict]
-    nutrition: List[dict]
+    ingredients: dict
+    nutrition: dict
     preptime: int
     difficulty: str
     name: str
-    notincluded: str
-    instruction: List[str]
+    notincluded: Optional[List[str]]
+    instruction: Optional[List[str]]
 
     class Config:
         orm_mode = True

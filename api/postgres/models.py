@@ -17,8 +17,8 @@ class Recipe(Base):
     __tablename__ = 'recipe'
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String, unique=True, nullable=False)
-    ingredients = Column(ARRAY(JSON), nullable=False)
-    nutrition = Column(ARRAY(JSON), nullable=False)
+    ingredients = Column(JSON, nullable=False)
+    nutrition = Column(JSON, nullable=False)
     preptime = Column(Integer, nullable=False)
     difficulty = Column(String, nullable=False)
     notincluded = Column(ARRAY(String), nullable=False)
@@ -39,7 +39,7 @@ class Users(Base):
     name = Column(String, unique=True, nullable=False)
     password = Column(String, nullable=False)
     email = Column(String, nullable=False, unique=True)
-    plans = relationship("plans")
+    plans = relationship("Plan")
     login = Column(BOOLEAN, server_default='false')
 
 
@@ -50,4 +50,4 @@ class Plan(Base):
     start = Column(DATE, nullable=False)
     end = Column(DATE, nullable=False)
     serve = Column(Integer, nullable=False)
-    recipes = relationship('recipe', secondary=association_table)
+    recipes = relationship('Recipe', secondary=association_table)
