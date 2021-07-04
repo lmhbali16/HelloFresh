@@ -16,12 +16,12 @@ class Recipe(Base):
 
     __tablename__ = 'recipe'
     id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(Integer, unique=True)
+    name = Column(String, unique=True, nullable=False)
     ingredients = Column(ARRAY(JSON), nullable=False)
     nutrition = Column(ARRAY(JSON), nullable=False)
     preptime = Column(Integer, nullable=False)
     difficulty = Column(String, nullable=False)
-    notincluded = Column(String, nullable=False)
+    notincluded = Column(ARRAY(String), nullable=False)
     instruction = Column(ARRAY(String), nullable=False)
 
 
@@ -37,7 +37,7 @@ class Users(Base):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String, unique=True, nullable=False)
-    password = Column(String)
+    password = Column(String, nullable=False)
     email = Column(String, nullable=False, unique=True)
     plans = relationship("plans")
     login = Column(BOOLEAN, server_default='false')
@@ -46,7 +46,7 @@ class Users(Base):
 class Plan(Base):
     __tablename__ = 'plans'
     id = Column(Integer, primary_key=True, autoincrement=True)
-    userid = Column(Integer, ForeignKey('users.id'))
+    userid = Column(Integer, ForeignKey('users.id'), nullable=False)
     start = Column(DATE, nullable=False)
     end = Column(DATE, nullable=False)
     serve = Column(Integer, nullable=False)
