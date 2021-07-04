@@ -6,7 +6,7 @@ from .token import verifyToken
 from postgres.database import SessionLocal
 from postgres.crud.recipeCrud import (
                                         createRecipe, deleteRecipe,
-                                        getRecipes, getRecipe,
+                                        getRecipes, getRecipeByName,
                                         updateRecipe)
 
 
@@ -19,8 +19,8 @@ def mainRecipe():
 
 
 @recipeRouter.get('/get')
-def retrieveRecipe(id: int):
-    return getRecipe(SessionLocal(), id)
+def retrieveRecipe(name: str):
+    return getRecipeByName(SessionLocal(), name)
 
 
 @recipeRouter.post('/delete')

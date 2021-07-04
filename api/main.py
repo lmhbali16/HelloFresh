@@ -35,7 +35,7 @@ def main():
 def signUp(user: UserCreate, db: Session = Depends(get_db)):
     email = user.email
     existing_user = getUserByEmail(db, email)
-    if existing_user is None:
+    if existing_user is not None:
         raise HTTPException(
                             status_code=HTTP_400_BAD_REQUEST,
                             detail='Email exist')

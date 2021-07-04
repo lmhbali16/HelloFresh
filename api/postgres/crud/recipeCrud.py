@@ -114,6 +114,38 @@ def deleteRecipe(session: Session, id: int):
     session.commit()
 
 
+def getRecipeByName(session: Session, name: str):
+    '''
+    Get a recipe by name
+
+    Parameters:
+        session (Session): db session
+        name (str): name of the recipe
+
+    Returns:
+        Recipe: Recipe object from postgres.models
+
+    '''
+    return session.query(Recipe).filter(Recipe.name == name).first()
+
+
+def deleteRecipeByName(session: Session, name: str):
+    '''
+    Delete a recipe by name
+
+    Parameters:
+        session (Session): db session
+        name (str): recipe name
+
+    Returns:
+        None: no return value
+
+    '''
+    recipe = getRecipeByName(session, name)
+    session.delete(recipe)
+    session.commit()
+
+
 def getRecipes(session: Session):
     '''
     Get all the recipes

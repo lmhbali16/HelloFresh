@@ -30,12 +30,12 @@ def getAccessToken(email: str, password: str):
     '''
     payload = {'email': email, 'password': password}
 
-    return jwt.encode(payload, key=secret, algorithm=[algorithm])
+    return jwt.encode(payload, key=secret, algorithm=algorithm)
 
 
 def verifyToken(token: str = Header(...)):
     try:
-        decoded = jwt.decode(token, algorithms=[algorithm], key=secret)
+        decoded = jwt.decode(token, algorithms=algorithm, key=secret)
 
         user = getUserByEmail(SessionLocal(), decoded['email'])
         if user is None or user.password != decoded['password']:
