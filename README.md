@@ -4,6 +4,7 @@ This is an attempt of the HelloFresh Graduate Software Engineering coding assign
 
 
 ## Stack
+---
 
 * Docker
 * Python FastAPI
@@ -14,14 +15,17 @@ This is an attempt of the HelloFresh Graduate Software Engineering coding assign
 
 
 ## Database Design
+---
 
 For ORM design go to design [page](/design.md)
 
 ## Testing
+---
 
 Basic testing of endpoints and CRUD were done with Postman and Pytest respectively.
 
 ### Unit test
+
 
 This is a demonstration of some testcases with pytest.
 
@@ -49,8 +53,11 @@ Note: you can also test it by opening the OpenAPI feature.
 
 
 
+Demonstration of Postman collection json file can be found [here](./api/test/HelloFreshPostman.json)
+
 
 ## Running
+---
 
 PgAdmin: http://localhost:5050
 

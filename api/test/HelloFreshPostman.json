@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "0cbe2b01-c90f-4e1e-b892-2d60d4401e70",
+		"name": "HelloFresh",
+		"description": "# HelloFresh Postman\n\nThis is the collection of endpoint testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"hellofresh\",\n    \"password\": \"hellofresh\",\n    \"email\": \"hello@fresh.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/login?email=hello@fresh.com&password=hellofresh",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "hello@fresh.com"
+						},
+						{
+							"key": "password",
+							"value": "hellofresh"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createRecipe",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"ingredients\": {\n      \"apple\": \"34gm\",\n      \"banana\": \"0.4kg\"},\n  \"nutrition\": {\n      \"sugar\": \"34g\",\n      \"energy\": \"0.4Kcal\"},\n  \"preptime\": 34,\n  \"difficulty\": \"easy\",\n  \"name\": \"fruit\",\n  \"notincluded\": [\n    \"tomato souce\"\n  ],\n  \"instruction\": [\n    \"chop\", \"mix fruits\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/recipe/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"recipe",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllRecipes",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/recipe/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"recipe",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getRecipe",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/recipe/get?name=fruit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"recipe",
+						"get"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "fruit"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImhlbGxvQGZyZXNoLmNvbSIsInBhc3N3b3JkIjoiaGVsbG9mcmVzaCJ9.qmy4pMeOKQKzl1Xw8_VTOTsSjPmpnzvwzYE8JtkdJ14"
+		}
+	]
+}
