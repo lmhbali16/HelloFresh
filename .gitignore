@@ -9,3 +9,4 @@ api/postgres/__pycache__/*
 api/postgres/crud/__pycache__/*
 api/routers/__pycache__/*
 api/schema/__pycache__/*
+api/test/__pycache__/*

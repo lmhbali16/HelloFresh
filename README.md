@@ -21,6 +21,34 @@ For ORM design go to design [page](/design.md)
 
 Basic testing of endpoints and CRUD were done with Postman and Pytest respectively.
 
+### Unit test
+
+This is a demonstration of some testcases with pytest.
+
+To run unit tests:
+
+1. run docker-compose file
+
+2. go to api folder with Terminal
+
+3. install requirements from requirement file
+
+```
+pip install -r requirements.txt
+```
+
+4. run test_main.py file
+
+```
+pytest test_main.py
+```
+
+### Postman endpoint tests
+
+Note: you can also test it by opening the OpenAPI feature.
+
+
+
 
 ## Running
 
